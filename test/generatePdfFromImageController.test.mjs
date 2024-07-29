@@ -97,7 +97,7 @@ describe('generatePdfFromImage Controller', () => {
         const pdfBuffer = Buffer.from('test pdf buffer'); // Adjust this to match the actual expected PDF content
 
         // Mock the axios POST request to the PHP service
-        axiosInstance.onPost('http://localhost:8000/php-service.php').reply(200, pdfBuffer, {
+        axiosInstance.onPost('https://product-php-production.up.railway.app/index.php').reply(200, pdfBuffer, {
             'Content-Type': 'application/pdf'
         });
 
@@ -120,7 +120,7 @@ describe('generatePdfFromImage Controller', () => {
     it('should handle PHP service error response correctly', async () => {
         req.file.buffer = Buffer.from('test image buffer'); // Provide a sample image buffer
         // Mock the axios POST request to the PHP service with a 500 error response
-        axiosInstance.onPost('http://localhost:8000/php-service.php').reply(500, { error: 'Failed to generate PDF' });
+        axiosInstance.onPost('https://product-php-production.up.railway.app/index.php').reply(500, { error: 'Failed to generate PDF' });
 
         await generatePdfFromImage(req, res); // Call the function under test
 
