@@ -32,7 +32,7 @@ const generatePdfFromImage = asyncHandler(async (req, res) => {
 
     try {
         // Make a POST request to the PHP service to generate the PDF
-        const response = await axios.post('http://localhost:8000/php-service.php', formData, {
+        const response = await axios.post('https://product-php-production.up.railway.app/php-service.php', formData, {
             headers: formData.getHeaders(), // Set the headers for the form data
             responseType: 'arraybuffer', // Expect the response to be an array buffer (binary data)
         });
