@@ -6,7 +6,7 @@ const env = require("dotenv").config({ path: "./.env" }); // Load environment va
 const multer = require('multer'); // Middleware for handling file uploads
 const { errorHandler } = require('./middleware/errorMiddleware.js'); // Custom error handling middleware
 
-const PORT = process.env.PORT || 5252; // Define the port to listen on, default to 5252 if not specified
+const PORT = process.env.PORT || 8080; // Define the port to listen on, default to 5252 if not specified
 
 const cors = require('cors'); // Middleware for handling CORS (Cross-Origin Resource Sharing)
 
