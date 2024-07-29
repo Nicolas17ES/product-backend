@@ -20,10 +20,8 @@ const generatePdfFromImage = asyncHandler(async (req, res) => {
 
     // Destructure the file information from the request
     const { buffer, originalname, mimetype } = req.file;
-console.log("mimetype", mimetype)
     // Validate that the file type is either PNG
     if (!['image/png'].includes(mimetype)) {
-        console.log('this')
         // Respond with a 400 Bad Request error if the file type is invalid
         return res.status(400).json({ error: 'Only PNG images are valid.' });
     }
