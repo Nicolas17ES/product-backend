@@ -22,6 +22,7 @@ const generatePdfFromImage = asyncHandler(async (req, res) => {
     const { buffer, originalname, mimetype } = req.file;
     // Validate that the file type is either PNG
     if (!['image/png'].includes(mimetype)) {
+        console.log('this')
         // Respond with a 400 Bad Request error if the file type is invalid
         return res.status(400).json({ error: 'Only PNG images are valid.' });
     }
@@ -32,7 +33,7 @@ const generatePdfFromImage = asyncHandler(async (req, res) => {
 
     try {
         // Make a POST request to the PHP service to generate the PDF
-        const response = await axios.post('https://product-php-production.up.railway.app/php-service.php', formData, {
+        const response = await axios.post('https://product-php-production.up.railway.app/index.php', formData, {
             headers: formData.getHeaders(), // Set the headers for the form data
             responseType: 'arraybuffer', // Expect the response to be an array buffer (binary data)
         });

@@ -17,9 +17,9 @@ const cors = require('cors'); // Middleware for handling CORS (Cross-Origin Reso
  * @param {Object} corsOptions - Options for CORS configuration.
  */
 app.use(cors({
-    origin: 'http://localhost:3000', // Allow requests from this origin
-    credentials: true, // Allow credentials (cookies, authorization headers) to be sent
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'] // Allowed HTTP methods
+    origin: '*', // Allow all origins for testing
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
 /**
